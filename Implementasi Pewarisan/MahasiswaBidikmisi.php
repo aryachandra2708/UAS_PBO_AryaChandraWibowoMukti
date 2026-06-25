@@ -18,3 +18,12 @@ class MahasiswaBidikmisi extends Mahasiswa {
         echo "Nama: {$this->nama_mahasiswa} | No KIP: {$this->nomorKipKuliah}";
     }
 }
+
+class MahasiswaBidikmisi extends Mahasiswa {
+    // ... constructor tetap sama ...
+
+    public function hitungtagihansemester() {
+        $total = 0;
+        return "Tagihan {$this->nama_mahasiswa} (Bidikmisi): Rp " . number_format($total) . " (Ditanggung KIP)";
+    }
+}

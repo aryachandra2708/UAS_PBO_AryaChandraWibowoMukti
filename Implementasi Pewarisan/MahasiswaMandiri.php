@@ -17,3 +17,12 @@ class MahasiswaMandiri extends Mahasiswa {
         echo "Nama: {$this->nama_mahasiswa} | Golongan: {$this->golonganUkt} | Wali: {$this->namaWali}";
     }
 }
+
+class MahasiswaMandiri extends Mahasiswa {
+    // ... constructor tetap sama ...
+
+    public function hitungtagihansemester() {
+        $total = $this->tarif_ukt_nominal + 100000;
+        return "Tagihan {$this->nama_mahasiswa} (Mandiri): Rp " . number_format($total);
+    }
+}
