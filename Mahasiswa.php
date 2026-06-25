@@ -1,5 +1,4 @@
 <?php
-
 abstract class Mahasiswa {
     protected $id_mahasiswa, $nama_mahasiswa, $nim, $semester, $tarif_ukt_nominal;
 
@@ -11,9 +10,8 @@ abstract class Mahasiswa {
         $this->tarif_ukt_nominal = $tarif;
     }
 
-    public function getNamaMahasiswa() {
-        return $this->nama_mahasiswa;
-    }
+    // Ini yang tadi error karena tidak ada
+    public function getNamaMahasiswa() { return $this->nama_mahasiswa; }
 
     abstract public function hitungtagihansemester();
     abstract public function tampilkanspesifikasiakademik();
