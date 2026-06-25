@@ -1,15 +1,17 @@
 <?php
-// 1. Load Induk
 require_once 'Mahasiswa.php';
-
-// 2. Load dari folder TAHAP 5 (hasil akhir)
-// Pastikan nama folder dan file sesuai (Case Sensitive)
 require_once 'TAHAP 4 DAN 5/MahasiswaMandiri.php';
 require_once 'TAHAP 4 DAN 5/MahasiswaBidikmisi.php';
 require_once 'TAHAP 4 DAN 5/MahasiswaPrestasi.php';
 
-// 3. Koneksi Database
 $conn = new mysqli("localhost", "root", "", "db_uas_pbo_ti1d_aryachandrawibowomukti");
+$result = $conn->query("SELECT * FROM tabel_mahasiswa"); // Sesuaikan nama tabel di sini!
+
+$daftarMahasiswa = [];
+while ($row = $result->fetch_assoc()) {
+    if ($row['jenis_pembayaran'] == 'Mandiri') 
+        $daftarMahasiswa[] = new MahasiswaMandiri(db_uas_pbo_ti1d_aryachandrawibowomukti);
+
 
 if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
@@ -35,6 +37,7 @@ while ($row = $result->fetch_assoc()) {
             $daftarMahasiswa[] = new MahasiswaPrestasi($row['id_mahasiswa'], $row['nama_mahasiswa'], $row['nim'], $row['semester'], $row['tarif_ukt_nominal'], $row['nama_instansi_beasiswa'], $row['minimal_ipk_syarat']);
             break;
     }
+}
 }
 ?>
 
