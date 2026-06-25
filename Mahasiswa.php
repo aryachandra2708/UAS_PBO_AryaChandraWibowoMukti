@@ -21,7 +21,6 @@ abstract class Mahasiswa {
     abstract public function hitungtagihansemester();
     abstract public function tampilkanspesifikasiakademik();
     
-    // Getter umum
     public function getNama() {
         return $this->nama_mahasiswa;
     }
