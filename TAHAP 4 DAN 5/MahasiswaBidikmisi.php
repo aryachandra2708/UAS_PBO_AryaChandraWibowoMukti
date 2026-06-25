@@ -1,8 +1,6 @@
 <?php
-
 class MahasiswaBidikmisi extends Mahasiswa {
-    protected $nomorKipKuliah;
-    protected $danaSakuSubsidi;
+    protected $nomorKipKuliah, $danaSakuSubsidi;
 
     public function __construct($id, $nama, $nim, $sem, $tarif, $kip, $dana) {
         parent::__construct($id, $nama, $nim, $sem, $tarif);
@@ -10,11 +8,12 @@ class MahasiswaBidikmisi extends Mahasiswa {
         $this->danaSakuSubsidi = $dana;
     }
 
+    // Overriding: Logika khusus Bidikmisi
     public function hitungtagihansemester() {
-        return "Mahasiswa Bidikmisi {$this->nama_mahasiswa} gratis UKT. Dana Saku: Rp " . number_format($this->danaSakuSubsidi);
+        return 0;
     }
 
     public function tampilkanspesifikasiakademik() {
-        echo "Nama: {$this->nama_mahasiswa} | No KIP: {$this->nomorKipKuliah}";
+        return "Bidikmisi | No KIP: {$this->nomorKipKuliah} | Subsidi: Rp " . number_format($this->danaSakuSubsidi);
     }
 }

@@ -1,8 +1,6 @@
 <?php
-
 class MahasiswaPrestasi extends Mahasiswa {
-    protected $namaInstansiBeasiswa;
-    protected $minimalIpkSyarat;
+    protected $namaInstansiBeasiswa, $minimalIpkSyarat;
 
     public function __construct($id, $nama, $nim, $sem, $tarif, $instansi, $ipk) {
         parent::__construct($id, $nama, $nim, $sem, $tarif);
@@ -10,11 +8,12 @@ class MahasiswaPrestasi extends Mahasiswa {
         $this->minimalIpkSyarat = $ipk;
     }
 
+    // Overriding: Logika khusus Prestasi
     public function hitungtagihansemester() {
-        return "Mahasiswa Prestasi {$this->nama_mahasiswa} dibiayai oleh {$this->namaInstansiBeasiswa}";
+        return $this->tarif_ukt_nominal * 0.25;
     }
 
     public function tampilkanspesifikasiakademik() {
-        echo "Nama: {$this->nama_mahasiswa} | Instansi: {$this->namaInstansiBeasiswa} | Min IPK: {$this->minimalIpkSyarat}";
+        return "Prestasi | Instansi: {$this->namaInstansiBeasiswa} | Min IPK: {$this->minimalIpkSyarat}";
     }
 }
