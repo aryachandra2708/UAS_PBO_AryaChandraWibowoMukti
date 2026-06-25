@@ -1,14 +1,8 @@
 <?php
 
 abstract class Mahasiswa {
-    // 2. Properti dengan enkapsulasi 'protected'
-    protected $id_mahasiswa;
-    protected $nama_mahasiswa;
-    protected $nim;
-    protected $semester;
-    protected $tarif_ukt_nominal;
+    protected $id_mahasiswa, $nama_mahasiswa, $nim, $semester, $tarif_ukt_nominal;
 
-    // Constructor
     public function __construct($id, $nama, $nim, $sem, $tarif) {
         $this->id_mahasiswa = $id;
         $this->nama_mahasiswa = $nama;
@@ -17,12 +11,10 @@ abstract class Mahasiswa {
         $this->tarif_ukt_nominal = $tarif;
     }
 
-    // 3. Metode Abstrak (Wajib diimplementasikan di subclass)
-    abstract public function hitungtagihansemester();
-    abstract public function tampilkanspesifikasiakademik();
-    
-    public function getNama() {
+    public function getNamaMahasiswa() {
         return $this->nama_mahasiswa;
     }
+
+    abstract public function hitungtagihansemester();
+    abstract public function tampilkanspesifikasiakademik();
 }
-?>
